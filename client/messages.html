@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="application">
+<html lang="en" ng-app="app">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,11 +7,9 @@
         <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
         <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
         <link href="assets/css/app.css" rel="stylesheet" type="text/css">
-        <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script src="assets/js/auth.js"></script>
-        <script src="assets/js/routes.js"></script>
         <script src="assets/js/angular.js"></script>
+        <script src="assets/js/app.js"></script>
+
         <script>
                 fAuth.onAuth(function(authData) {
                             if(typeof authData === "undefined" || authData == null){
@@ -37,13 +35,14 @@
                         <li>Rajesh</li>
                     </div>
                 </div>
-                <div id="message-box">
+
+                <div id="message-box" ng-controller="MessagesCtrl">
                     <div id="message-container">
-                    
+
                     </div>
                     <div id="text-box">
-                        <div id="text-area"  contenteditable="true">
-                        
+                        <div id="text-area"  contenteditable="true" ng-model="msg">
+
                         </div>
                         <button id="send-button">Send</button>
                     </div>

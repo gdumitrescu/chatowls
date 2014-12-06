@@ -37,7 +37,7 @@ var authUsingGplus = function(){
                 return true;
             });
 };
-    
+
 var unauth = function(){
             fAuth.unauth();
 }
