@@ -20,5 +20,3 @@ app.controller('LoginCtrl', function MessagesCtrl($scope, UserAuthenticationServ
     UserAuthenticationService().unauth();
   };
 });
-
-
