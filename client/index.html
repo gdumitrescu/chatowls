@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" ng-app="application">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HackOwls - ChatOwls</title>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css">
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/routes.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <script>
+            window.onload = function(){
+                      var loginForm = document.getElementById("login-box");
+                      var login = loginForm.getElementsByTagName("div");
+                      for(var i in login){
+                          login[i].onmouseover = function(){
+                             console.log(this.style);
+                             document.body.style.backgroundColor = this.style.backgroundColor; 
+                          };
+                          login[i].onmouseout = function(){
+                              document.body.style.backgroundColor = "#fff";
+                          };
+                      }
+            };
+  </script>
+  </head>
+  <body>
+      <div id="wrapper">
+      <div id="header"> 
+          <span>ChatOwls</span>
+      </div>
+      <div id="login-form">
+          <div id="login-box">
+              <div class="fb-login" style="background-color: #3b5998">
+                  Login with facebook
+              </div>
+              <div class="tweet-login" style="background-color: #55acee">
+                  Login with twitter
+              </div>
+          </div>
+      </div>
+  </div>
+  </body>
+</html>
