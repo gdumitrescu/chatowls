@@ -1,46 +1,75 @@
 <!doctype html>
 <html lang="en" ng-app="application">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HackOwls - ChatOwls</title>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href="assets/css/app.css" rel="stylesheet" type="text/css">
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/routes.js"></script>
-    <script src="assets/js/angular.js"></script>
-    <script>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HackOwls - ChatOwls</title>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href="assets/css/app.css" rel="stylesheet" type="text/css">
+        <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/auth.js"></script>
+        <script src="assets/js/routes.js"></script>
+        <script src="assets/js/angular.js"></script>
+        <script>
             window.onload = function(){
-                      var loginForm = document.getElementById("login-box");
-                      var login = loginForm.getElementsByTagName("div");
+                      var redirect = "messages.html";
+                      var login = document.getElementById("login-box").getElementsByTagName("div");
                       for(var i in login){
                           login[i].onmouseover = function(){
-                             console.log(this.style);
                              document.body.style.backgroundColor = this.style.backgroundColor; 
                           };
                           login[i].onmouseout = function(){
                               document.body.style.backgroundColor = "#fff";
                           };
                       }
+                      login[0].addEventListener("click",authUsingFacebook);
+                      login[1].addEventListener("click",authUsingTwitter);
+                      login[2].addEventListener("click",authUsingGithub);
+                      login[3].addEventListener("click",authUsingGplus);
+                      fAuth.onAuth(function(authData) {
+                            if(typeof authData !== "undefined" && authData != null){
+                                var isNewUser = !checkIfUserExists(authData.uid);
+                                if (authData && isNewUser) {
+                                        fAuth.child(authData.uid).set(authData);
+                                }
+                                location.href = redirect;
+                            }
+                     });
             };
-  </script>
-  </head>
-  <body>
-      <div id="wrapper">
-      <div id="header"> 
-          <span>ChatOwls</span>
-      </div>
-      <div id="login-form">
-          <div id="login-box">
-              <div class="fb-login" style="background-color: #3b5998">
-                  Login with facebook
-              </div>
-              <div class="tweet-login" style="background-color: #55acee">
-                  Login with twitter
-              </div>
-          </div>
-      </div>
-  </div>
-  </body>
+        </script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header"> 
+                <span>ChatOwls</span>
+            </div>
+            <div id="login-form">
+                <div id="login-box">
+                    <div class="fb-login" style="background-color: #3b5998">
+                        Login with facebook
+                    </div>
+                    <p class="line">
+                      <span>or</span>
+                    </p>
+                    <div class="tweet-login" style="background-color: #55acee">
+                        Login with twitter
+                    </div>
+                    <p class="line">
+                      <span>or</span>
+                    </p>
+                    <div class="github-login" style="background-color: #333">
+                        Login with github
+                    </div>
+                    <p class="line">
+                      <span>or</span>
+                    </p>
+                    <div class="gplus-login" style="background-color: #d34836">
+                        Login with Google+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

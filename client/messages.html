@@ -1,19 +1,32 @@
 <!doctype html>
 <html lang="en" ng-app="application">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HackOwls - ChatOwls</title>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href="assets/css/app.css" rel="stylesheet" type="text/css">
-    <script src="assets/js/app.js"></script>
-    <script src="assets/js/routes.js"></script>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HackOwls - ChatOwls - Messages</title>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href="assets/css/app.css" rel="stylesheet" type="text/css">
+        <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/auth.js"></script>
+        <script src="assets/js/routes.js"></script>
+        <script src="assets/js/angular.js"></script>
+        <script>
+            window.onload = function(){
+                    fAuth.onAuth(function(authData) {
+                                if(typeof authData === "undefined" || authData == null){
+                                    location.href = "index.html";
+                                }
+                    });
+            };
+        </script>
     </head>
     <body>
         <div id="wrapper">
             <div id="header">
                     <span>ChatOwls</span>
+                    <a id="logout" href="logout.html">Logout</a>
             </div>
             <div id="content-wrapper">
                 <div id="side-box">

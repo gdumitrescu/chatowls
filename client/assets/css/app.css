@@ -35,12 +35,12 @@ body{
 
 #login-form{
     width: 250px;
-    height: 152px;
+    height: 345px;
     position: absolute;
     top: 50%;
     left: 50%;
     margin-left: -125px;
-    margin-top: -76px;
+    margin-top: -172.5px;
     background: #fff;
     border: 1px solid #ffd20d;
     color: #555;
@@ -48,7 +48,22 @@ body{
     border-radius: 5px;
 }
 
-.fb-login, .tweet-login{
+#login-form .line{
+    width:80%;
+    margin: 0 10%;
+    height: 1px;
+    background-color: #ccc;
+    text-align: center;
+}
+#login-form .line span{
+    background-color: white;
+    position: relative;
+    top: -11px;
+    padding:0 5px;
+    color: #555;
+    font-size:15px;
+}
+.fb-login, .tweet-login, .github-login, .gplus-login{
     padding: 5px 10px;
     border-radius: 5px;
     color: #fff;
@@ -148,4 +163,24 @@ body{
 }
 #content-wrapper #message-box #text-box #send-button:hover{
     background: #ffd20d;
+}
+
+#header #logout{
+    padding:0 10px;
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    background:#fff;
+    color: #ffd20d;
+    border:1px #ffd20d solid;
+    text-decoration: none;
+    line-height: 30px;
+    font-family: "Open Sans", sans-serif;
+    font-size: 15px;
+    border-radius: 20px;
+    transition: 0.5s background, 0.5s color;
+}
+#header #logout:hover{
+    background: #444;
+    color: #fff;
 }
