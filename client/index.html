@@ -13,29 +13,28 @@
       <header class="header">
         <span class="header-title">ChatOwls</span>
       </header>
-
-      <form id="loginForm" class="login-form" ng-controller="LoginForm">
+      <form id="loginForm" class="login-form" ng-controller="LoginCtrl">
         <div class="login-box">
-          <div class="fb-login" data-color = "#3b5998" change-background ng-click="authUsingFacebook()" style="background-color: #3b5998">Login with facebook</div>
+          <div class="fb-login" change-background ng-click="authUsingFacebook()" data-color = "#3b5998">Login with facebook</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="tweet-login" data-color = "#55acee"  change-background ng-click="authUsingTwitter()" style="background-color: #55acee">Login with twitter</div>
+          <div class="tweet-login" change-background ng-click="authUsingTwitter()" data-color = "#55acee">Login with twitter</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="github-login" data-color = "#333333" change-background ng-click="authUsingGithub()" style="background-color: #333">Login with github</div>
+          <div class="github-login" change-background ng-click="authUsingGithub()" data-color = "#333333">Login with github</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="gplus-login" data-color = "#d34836" change-background ng-click="authUsingGplus()" style="background-color: #d34836">
+          <div class="gplus-login" change-background ng-click="authUsingGplus()" data-color = "#d34836">
             Login with Google+
           </div>
         </div>
       </form>
     </div>
 
-    <script src="assets/js/angular.js"></script>
     <script src="assets/js/app.js"></script>
-  </body>
+    <script src="assets/js/angular.js"></script>
+    </body>
 </html>
