@@ -13,8 +13,17 @@
         <script src="assets/js/routes.js"></script>
         <script src="assets/js/angular.js"></script>
         <script>
+            fAuth.onAuth(function(authData) {
+                var redirect = "messages.html";
+                if(typeof authData !== "undefined" && authData != null){
+                    var isNewUser = !checkIfUserExists(authData.uid);
+                    if (authData && isNewUser) {
+                            fAuth.child(authData.uid).set(authData);
+                    }
+                    location.href = redirect;
+                }
+            });
             window.onload = function(){
-                      var redirect = "messages.html";
                       var login = document.getElementById("login-box").getElementsByTagName("div");
                       for(var i in login){
                           login[i].onmouseover = function(){
@@ -28,15 +37,6 @@
                       login[1].addEventListener("click",authUsingTwitter);
                       login[2].addEventListener("click",authUsingGithub);
                       login[3].addEventListener("click",authUsingGplus);
-                      fAuth.onAuth(function(authData) {
-                            if(typeof authData !== "undefined" && authData != null){
-                                var isNewUser = !checkIfUserExists(authData.uid);
-                                if (authData && isNewUser) {
-                                        fAuth.child(authData.uid).set(authData);
-                                }
-                                location.href = redirect;
-                            }
-                     });
             };
         </script>
     </head>

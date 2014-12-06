@@ -13,13 +13,11 @@
         <script src="assets/js/routes.js"></script>
         <script src="assets/js/angular.js"></script>
         <script>
-            window.onload = function(){
-                    fAuth.onAuth(function(authData) {
-                                if(typeof authData === "undefined" || authData == null){
-                                    location.href = "index.html";
-                                }
-                    });
-            };
+                fAuth.onAuth(function(authData) {
+                            if(typeof authData === "undefined" || authData == null){
+                                location.href = "index.html";
+                            }
+                });
         </script>
     </head>
     <body>
