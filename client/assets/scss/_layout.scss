@@ -1,0 +1,70 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+html {
+  font-size: 16px;
+}
+body {
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  transition: 0.5s background;
+}
+.header {
+  background: #ffd20d;
+  box-shadow: 0px 0px 5px #333;
+  color: #333;
+  font-family: 'Pacifico', cursive;
+  height: 4rem;
+  line-height: 4rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+  .header-title {
+    font-size: 2rem;
+  }
+}
+
+
+// TODO Update sidebox
+#content-wrapper #side-box {
+  background: #444;
+  color: #f1f1f1;
+  float: left;
+  height: 100%;
+  margin: 0;
+  width: 220px;
+}
+#content-wrapper #side-box #search-box {
+  margin: 5px auto;
+  text-align: center;
+  width: 100%;
+}
+#content-wrapper #side-box #search-box #search {
+  background: #fff;
+  border-radius: 10px;
+  color: #333;
+  display: inline-block;
+  font-size: 15px;
+  margin: 5px;
+  padding: 5px 5%;
+  text-align: left;
+  width: 80%;
+}
+#content-wrapper #side-box #list-box {
+  margin: 10px auto;
+  overflow-y: auto;
+  text-align: center;
+  width: 90%;
+}
+#content-wrapper #side-box #list-box li {
+  background: #555;
+  color: #f1f1f1;
+  font-size: 15px;
+  list-style: none;
+  margin: 1px 0;
+  padding: 10px 5px;
+  text-align: left;
+}

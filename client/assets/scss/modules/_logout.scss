@@ -1,0 +1,21 @@
+// logout
+
+.logout {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px #ffd20d solid;
+  color: #ffd20d;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  line-height: 30px;
+  padding: 0 10px;
+  position: absolute;
+  right: 10px;
+  text-decoration: none;
+  top: 15px;
+  transition: 0.5s background, 0.5s color;
+  &:hover {
+    background: #444;
+    color: #fff;
+  }
+}
