@@ -1,22 +1,22 @@
-app.controller('LoginCtrl', function MessagesCtrl($scope, UserAuthenticationService) {
+app.controller('LoginCtrl', function MessagesCtrl($scope, AuthenticationService) {
 
   $scope.authUsingFacebook = function(){
-    UserAuthenticationService().authUsingFacebook();
+    AuthenticationService().authUsingFacebook();
   };
 
   $scope.authUsingTwitter = function(){
-    UserAuthenticationService().authUsingTwitter();
+    AuthenticationService().authUsingTwitter();
   };
 
   $scope.authUsingGithub = function(){
-    UserAuthenticationService().authUsingGithub();
+    AuthenticationService().authUsingGithub();
   };
 
   $scope.authUsingGplus = function(){
-    UserAuthenticationService().authUsingGplus();
+    AuthenticationService().authUsingGplus();
   };
 
   $scope.unauth = function(){
-    UserAuthenticationService().unauth();
+    AuthenticationService().unauth();
   };
 });
