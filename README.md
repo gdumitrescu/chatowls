@@ -1,4 +1,4 @@
-## ChatOwls
+## ChatOwls [![Build Status](https://drone.io/github.com/HackOwls/chatowls/status.png)](https://drone.io/github.com/HackOwls/chatowls/latest)
 
 
 [![Stories in Ready](https://badge.waffle.io/HackOwls/chatowls.png?label=ready&title=Ready)](https://waffle.io/HackOwls/chatowls)
