@@ -1,4 +1,4 @@
-app.factory('UserAuthenticationService', function($firebaseAuth){
+app.factory('AuthenticationService', function($firebaseAuth){
   return function() {
     var that = this;
 
