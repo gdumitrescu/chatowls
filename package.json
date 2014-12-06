@@ -1,5 +1,5 @@
 {
-  "name": "foundation-apps-template",
+  "name": "chatowls",
   "version": "0.0.1",
   "scripts": {
     "start": "gulp"
