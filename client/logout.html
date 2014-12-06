@@ -1,24 +1,21 @@
 <!doctype html>
-<html lang="en" ng-app="application">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>HackOwls - ChatOwls</title>
-        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href="assets/css/app.css" rel="stylesheet" type="text/css">
-        <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
-        <script src="assets/js/angular.js"></script>
-        <script src="assets/js/app.js"></script>
-        <script src="assets/js/routes.js"></script>
-        <script>
-            unauth();
-            location.href = "index.html";
-        </script>
-    </head>
-    <body style="text-align:center">
-        <div style="font-size:20px;">
-            Logging Out...
-        </div>
-    </body>
+<html lang="en" ng-app="app">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HackOwls - ChatOwls</title>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="assets/css/app.css" rel="stylesheet" type="text/css">
+    <script src="https://cdn.firebase.com/js/client/2.0.6/firebase.js"></script>
+    <script src="assets/js/angular.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script src="assets/js/routes.js"></script>
+    <script src="assets/js/angular.js"></script>
+  </head>
+  <body style="text-align:center">
+    <div style="font-size:20px;" ng-controller="LoginCtrl" ng-click="unauth()">
+      Logging Out...
+    </div>
+  </body>
 </html>
