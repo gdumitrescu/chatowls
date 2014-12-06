@@ -1,7 +1,7 @@
-app.controller('MessagesCtrl', function MessagesCtrl($scope, $firebase) {
+app.controller('MessagesCtrl', function MessagesCtrl($scope, $firebase, $log) {
 
   $scope.$watch('msg', function(){
-    console.log(arguments);
+    $log.log(arguments);
   });
 
 });
