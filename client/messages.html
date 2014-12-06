@@ -1,43 +1,30 @@
 <!doctype html>
 <html lang="en" ng-app="app">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HackOwls - ChatOwls - Messages</title>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-    <script src="/assets/js/angular.js"></script>
-    <script src="/assets/js/app.js"></script>
-    <script src="/assets/js/routes.js"></script>
-    <script>
-        fAuth.onAuth(function(authData) {
-              if(typeof authData === "undefined" || authData == null){
-                location.href = "index.html";
-              }
-        }); 
-        window.onload = function(){
-                    var data = getInfo();
-                    document.getElementById("name").textContent = data.name;
-                    document.getElementById("pic").src = data.pic;
-        };
-    </script>
-  </head>
-  <body>
-    <div class="container">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>HackOwls - ChatOwls - Messages</title>
+        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+        <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href="assets/css/app.css" rel="stylesheet" type="text/css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <script src="assets/js/angular.js"></script>
+        <script src="assets/js/app.js"></script>
+    </head>
+    <body>
+        <div class="container">
       <header class="header">
         <span class="header-title">ChatOwls</span>
         <div id="side-profile-menu">
-                        <li><image id="pic" class="pic"></image></li>
-                        <li> <span id="name" class="name"></span></li>
-                        <li><a id="logout" href="logout.html" class="fa fa-sign-out logout"></a></li>
+          <li><img id="pic" class="pic"></li>
+          <li><span id="name" class="name"></span></li>
+          <li><a id="logout" ng-click='unauth()' class="fa fa-sign-out logout"></a></li>
         </div>
       </header>
       <section id="main">
         <div id="side-box">
           <div id="search-box">
-            <input class="search" type="text"> </input>
+            <input class="search" type="text">
           </div>
           <div id="list-box">
             <li>Gabriel</li>
@@ -45,14 +32,11 @@
             <li>Rajesh</li>
           </div>
         </div>
-
         <div id="message-box" ng-controller="MessagesCtrl">
           <div id="message-container">
-
           </div>
           <div id="text-box">
             <div id="text-area"  contenteditable="true" ng-model="msg">
-
             </div>
             <button id="send-button">Send</button>
           </div>

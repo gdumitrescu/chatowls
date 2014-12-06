@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,55 +13,28 @@
       <header class="header">
         <span class="header-title">ChatOwls</span>
       </header>
-      <form id="loginForm" class="login-form">
+      <form id="loginForm" class="login-form" ng-controller="LoginCtrl">
         <div class="login-box">
-          <div class="fb-login" data-color = "#3b5998">Login with facebook</div>
+          <div class="fb-login" change-background ng-click="authUsingFacebook()" data-color = "#3b5998">Login with facebook</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="tweet-login" data-color = "#55acee">Login with twitter</div>
+          <div class="tweet-login" change-background ng-click="authUsingTwitter()" data-color = "#55acee">Login with twitter</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="github-login" data-color = "#333333">Login with github</div>
+          <div class="github-login" change-background ng-click="authUsingGithub()" data-color = "#333333">Login with github</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="gplus-login" data-color = "#d34836">
+          <div class="gplus-login" change-background ng-click="authUsingGplus()" data-color = "#d34836">
             Login with Google+
           </div>
         </div>
       </form>
     </div>
-      
-    <script src="assets/js/angular.js"></script>
+
     <script src="assets/js/app.js"></script>
-    <script>
-      fAuth.onAuth(function(authData) {
-        var redirect = "messages.html";
-        if(typeof authData !== "undefined" && authData != null){
-          var isNewUser = !checkIfUserExists(authData.uid);
-          if (authData && isNewUser) {
-              fAuth.child(authData.uid).set(authData);
-          }
-          location.href = redirect;
-        }
-      });
-      window.onload = function(){
-            var login = document.querySelector(".login-box").getElementsByTagName("div");
-            for(var i =0; i < login.length; i = i+2){
-              login[i].onmouseover = function(){
-               document.body.style.backgroundColor = this.dataset.color;
-              };
-              login[i].onmouseout = function(){
-                document.body.style.backgroundColor = "#fff";
-              };
-            }
-            login[0].addEventListener("click",authUsingFacebook);
-            login[2].addEventListener("click",authUsingTwitter);
-            login[4].addEventListener("click",authUsingGithub);
-            login[6].addEventListener("click",authUsingGplus);
-      };
-    </script>
-  </body>
+    <script src="assets/js/angular.js"></script>
+    </body>
 </html>

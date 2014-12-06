@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="application">
+<html lang="en" ng-app="app">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,13 +11,10 @@
         <script src="assets/js/angular.js"></script>
         <script src="assets/js/app.js"></script>
         <script src="assets/js/routes.js"></script>
-        <script>
-            unauth();
-            location.href = "index.html";
-        </script>
+        <script src="assets/js/angular.js"></script>
     </head>
     <body style="text-align:center">
-        <div style="font-size:20px;">
+        <div style="font-size:20px;" ng-controller="LoginCtrl" ng-click="unauth()">
             Logging Out...
         </div>
     </body>
