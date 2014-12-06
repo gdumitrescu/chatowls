@@ -57,6 +57,31 @@ app.factory('UserAuthenticationService', function($firebaseAuth){
         location.href = redirect;
       };
     });
+    
+    that.getInfo = function() {
+        var data = {};
+        data.uid = fAuthData.uid;
+        data.provider = fAuthData.provider;
+        switch (data.provider) {
+          case "facebook":
+            data.name = fAuthData.facebook.displayName;
+            data.pic = "https://graph.facebook.com/" + fAuthData.facebook.cachedUserProfile.id + "/picture";
+            break;
+          case "twitter":
+            data.name = fAuthData.twitter.displayName;
+            data.pic = fAuthData.twitter.cachedUserProfile.profile_image_url;
+            break;
+          case "github":
+            data.name = fAuthData.github.displayName;
+            data.pic = fAuthData.github.cachedUserProfile.avatar_url;
+            break;
+          case "google":
+            data.name = fAuthData.google.displayName;
+            data.pic = fAuthData.google.cachedUserProfile.picture;
+            break;
+        }
+        return data;
+    };
 
     return that;
 
