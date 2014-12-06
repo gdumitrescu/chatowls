@@ -63,6 +63,7 @@ gulp.task('uglify', ['uglify-angular'], function() {
     'bower_components/notify.js/notify.js',
     'bower_components/tether/tether.js',
     'bower_components/firebase/firebase.js',
+    'bower_components/angularfire/dist/angularfire.js',
     'client/assets/js/auth.js',
   ];
 
