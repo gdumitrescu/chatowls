@@ -1,0 +1,42 @@
+// Messages
+
+// TODO Update messagebox
+#message-box {
+  background: #fff;
+  height: 100%;
+  margin-left: 220px;
+  margin: 0;
+  width: calc(100% - 220px);
+}
+#message-box #message-container {
+  height: calc(100% - 101px);
+  width: 100%;
+}
+#message-box #text-box {
+  border-top: 1px #bbb solid;
+  height: 100px;
+  width: 100%;
+}
+#message-box #text-box #text-area {
+  color: #444;
+  float: left;
+  height: 90px;
+  margin: 5px 0;
+  padding: 0 2.5%;
+  width: 95%;
+}
+#message-box #text-box #send-button {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px #ffd20d solid;
+  color: #444;
+  cursor: pointer;
+  float: right;
+  margin-right: 10px;
+  margin-top: -40px;
+  padding: 5px 10px;
+  transition: 0.4s background;
+}
+#message-box #text-box #send-button:hover {
+  background: #ffd20d;
+}
