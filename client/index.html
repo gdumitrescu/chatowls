@@ -15,28 +15,28 @@
       </header>
       <form id="loginForm" class="login-form">
         <div class="login-box">
-          <div class="fb-login">Login with facebook</div>
+          <div class="fb-login" data-color = "#3b5998">Login with facebook</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="tweet-login">Login with twitter</div>
+          <div class="tweet-login" data-color = "#55acee">Login with twitter</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="github-login">Login with github</div>
+          <div class="github-login" data-color = "#333333">Login with github</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="gplus-login">
+          <div class="gplus-login" data-color = "#d34836">
             Login with Google+
           </div>
         </div>
       </form>
     </div>
-
-    <script src="assets/js/app.js"></script>
+      
     <script src="assets/js/angular.js"></script>
-        <script>
+    <script src="assets/js/app.js"></script>
+    <script>
       fAuth.onAuth(function(authData) {
         var redirect = "messages.html";
         if(typeof authData !== "undefined" && authData != null){
@@ -48,19 +48,19 @@
         }
       });
       window.onload = function(){
-            var login = document.getElementById("login-box").getElementsByTagName("div");
-            for(var i in login){
+            var login = document.querySelector(".login-box").getElementsByTagName("div");
+            for(var i =0; i < login.length; i = i+2){
               login[i].onmouseover = function(){
-               document.body.style.backgroundColor = this.style.backgroundColor;
+               document.body.style.backgroundColor = this.dataset.color;
               };
               login[i].onmouseout = function(){
                 document.body.style.backgroundColor = "#fff";
               };
             }
             login[0].addEventListener("click",authUsingFacebook);
-            login[1].addEventListener("click",authUsingTwitter);
-            login[2].addEventListener("click",authUsingGithub);
-            login[3].addEventListener("click",authUsingGplus);
+            login[2].addEventListener("click",authUsingTwitter);
+            login[4].addEventListener("click",authUsingGithub);
+            login[6].addEventListener("click",authUsingGplus);
       };
     </script>
   </body>

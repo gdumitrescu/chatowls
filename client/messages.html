@@ -7,27 +7,37 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="/assets/js/angular.js"></script>
     <script src="/assets/js/app.js"></script>
     <script src="/assets/js/routes.js"></script>
-    <script src="/assets/js/angular.js"></script>
     <script>
         fAuth.onAuth(function(authData) {
               if(typeof authData === "undefined" || authData == null){
                 location.href = "index.html";
               }
-        });
+        }); 
+        window.onload = function(){
+                    var data = getInfo();
+                    document.getElementById("name").textContent = data.name;
+                    document.getElementById("pic").src = data.pic;
+        };
     </script>
   </head>
   <body>
     <div class="container">
       <header class="header">
         <span class="header-title">ChatOwls</span>
-        <a id="logout" href="logout.html">Logout</a>
+        <div id="side-profile-menu">
+                        <li><image id="pic" class="pic"></image></li>
+                        <li> <span id="name" class="name"></span></li>
+                        <li><a id="logout" href="logout.html" class="fa fa-sign-out logout"></a></li>
+        </div>
       </header>
       <section id="main">
         <div id="side-box">
           <div id="search-box">
-            <div id="search" contenteditable="true"></div>
+            <input class="search" type="text"> </input>
           </div>
           <div id="list-box">
             <li>Gabriel</li>
