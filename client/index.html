@@ -15,21 +15,23 @@
       </header>
       <form id="loginForm" class="login-form" ng-controller="LoginCtrl">
         <div class="login-box">
-          <div class="fb-login" change-background ng-click="authUsingFacebook()" data-color = "#3b5998">Login with facebook</div>
+          <div class="fb-login" change-background style="background-color: #3b5998"
+            ng-click="authUsingFacebook()">Login with facebook</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="tweet-login" change-background ng-click="authUsingTwitter()" data-color = "#55acee">Login with twitter</div>
+          <div class="tweet-login" change-background style="background-color: #55acee"
+            ng-click="authUsingTwitter()">Login with twitter</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="github-login" change-background ng-click="authUsingGithub()" data-color = "#333333">Login with github</div>
+          <div class="github-login" change-background style="background-color: #333333"
+            ng-click="authUsingGithub()">Login with github</div>
           <div class="line">
             <span class="line-text">or</span>
           </div>
-          <div class="gplus-login" change-background ng-click="authUsingGplus()" data-color = "#d34836">
-            Login with Google+
-          </div>
+          <div class="gplus-login" change-background style="background-color: #d34836"
+            ng-click="authUsingGplus()">Login with Google+</div>
         </div>
       </form>
     </div>
