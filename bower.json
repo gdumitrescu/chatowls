@@ -23,6 +23,7 @@
     "tests"
   ],
   "dependencies": {
-    "foundation-apps": "~1.0.0"
+    "foundation-apps": "~1.0.0",
+    "firebase": "~2.0.6"
   }
 }
