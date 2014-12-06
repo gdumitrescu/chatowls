@@ -11,9 +11,9 @@
         <script src="assets/js/angular.js"></script>
         <script src="assets/js/app.js"></script>
     </head>
-    <body>
-        <div class="container">
-      <header class="header">
+  <body>
+    <div class="container">
+      <header class="header" ng-controller="HeaderCtrl">
         <span class="header-title">ChatOwls</span>
         <div id="side-profile-menu">
           <li><img id="pic" class="pic"></li>
@@ -24,7 +24,7 @@
       <section id="main">
         <div id="side-box">
           <div id="search-box">
-            <input class="search" type="text">
+            <input id="search" class="search" type="text">
           </div>
           <div id="list-box">
             <li>Gabriel</li>
