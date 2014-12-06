@@ -29,7 +29,8 @@ body {
 
 
 // TODO Update sidebox
-#content-wrapper #side-box {
+// TODO Update sidebox
+#side-box {
   background: #444;
   color: #f1f1f1;
   float: left;
@@ -37,12 +38,12 @@ body {
   margin: 0;
   width: 220px;
 }
-#content-wrapper #side-box #search-box {
+#side-box #search-box {
   margin: 5px auto;
   text-align: center;
   width: 100%;
 }
-#content-wrapper #side-box #search-box #search {
+#side-box #search-box #search {
   background: #fff;
   border-radius: 10px;
   color: #333;
@@ -53,13 +54,13 @@ body {
   text-align: left;
   width: 80%;
 }
-#content-wrapper #side-box #list-box {
+#side-box #list-box {
   margin: 10px auto;
   overflow-y: auto;
   text-align: center;
   width: 90%;
 }
-#content-wrapper #side-box #list-box li {
+#side-box #list-box li {
   background: #555;
   color: #f1f1f1;
   font-size: 15px;

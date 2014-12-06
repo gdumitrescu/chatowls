@@ -1,53 +1,53 @@
 <!doctype html>
 <html lang="en" ng-app="app">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>HackOwls - ChatOwls - Messages</title>
-        <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-        <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href="assets/css/app.css" rel="stylesheet" type="text/css">
-        <script src="assets/js/angular.js"></script>
-        <script src="assets/js/app.js"></script>
-
-        <script>
-                fAuth.onAuth(function(authData) {
-                            if(typeof authData === "undefined" || authData == null){
-                                location.href = "index.html";
-                            }
-                });
-        </script>
-    </head>
-    <body>
-        <div id="wrapper">
-            <div id="header">
-                    <span>ChatOwls</span>
-                    <a id="logout" href="logout.html">Logout</a>
-            </div>
-            <div id="content-wrapper">
-                <div id="side-box">
-                    <div id="search-box">
-                        <div id="search" contenteditable="true"></div>
-                    </div>
-                    <div id="list-box">
-                        <li>Gabriel</li>
-                        <li>Kleber</li>
-                        <li>Rajesh</li>
-                    </div>
-                </div>
-
-                <div id="message-box" ng-controller="MessagesCtrl">
-                    <div id="message-container">
-
-                    </div>
-                    <div id="text-box">
-                        <div id="text-area"  contenteditable="true" ng-model="msg">
-
-                        </div>
-                        <button id="send-button">Send</button>
-                    </div>
-                </div>
-            </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HackOwls - ChatOwls - Messages</title>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/routes.js"></script>
+    <script src="/assets/js/angular.js"></script>
+    <script>
+        fAuth.onAuth(function(authData) {
+              if(typeof authData === "undefined" || authData == null){
+                location.href = "index.html";
+              }
+        });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <span class="header-title">ChatOwls</span>
+        <a id="logout" href="logout.html">Logout</a>
+      </header>
+      <section id="main">
+        <div id="side-box">
+          <div id="search-box">
+            <div id="search" contenteditable="true"></div>
+          </div>
+          <div id="list-box">
+            <li>Gabriel</li>
+            <li>Kleber</li>
+            <li>Rajesh</li>
+          </div>
         </div>
-    </body>
+
+        <div id="message-box" ng-controller="MessagesCtrl">
+          <div id="message-container">
+
+          </div>
+          <div id="text-box">
+            <div id="text-area"  contenteditable="true" ng-model="msg">
+
+            </div>
+            <button id="send-button">Send</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
 </html>
