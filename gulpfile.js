@@ -87,12 +87,8 @@ gulp.task('uglify-angular', function() {
     'bower_components/angularfire/dist/angularfire.js',
     'bower_components/ui-router/release/angular-ui-router.js',
     'client/assets/js/app.js',
-    'client/assets/js/controllers/**/*.js',
-    'client/assets/js/filters/**/*.js',
-    'client/assets/js/factories/**/*.js',
-    'client/assets/js/directives/**/*.js',
-    'client/assets/js/services/**/*.js',
-    'client/assets/js/values/**/*.js',
+    'client/assets/js/modules/**/*.js',
+    'client/assets/js/shared/**/*.js',
   ];
 
   return gulp.src(libs)
