@@ -13,11 +13,15 @@
 	  </div>
  </div>
 </div>
-<div id="message-box" class="message-box" ng-controller="MessagesController">
+<div id="message-box" class="message-box" ng-init="lines = []" ng-controller="MessagesController">
   <div id="message-container">
+    <ul>
+      <li class="animate-repeat" ng-repeat="line in lines" style="color:red">
+        {{line}}
+    </ul>
   </div>
   <div id="text-box">
-  <textarea id="text-area" ng-model="msg" placeholder = "Enter message">
+  <textarea id="text-area" ng-model="msg" placeholder = "Enter message" ng-keypress="send($event)">
   </div>
   </div>
 </div>
