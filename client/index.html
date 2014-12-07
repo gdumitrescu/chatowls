@@ -9,31 +9,20 @@
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="container">
-      <header class="header">
-        <span class="header-title">ChatOwls</span>
-      </header>
-      <form id="loginForm" class="login-form" ng-controller="LoginCtrl">
-        <div class="login-box">
-          <div class="fb-login" change-background style="background-color: #3b5998"
-            ng-click="authUsingFacebook()">Login with facebook</div>
-          <div class="line">
-            <span class="line-text">or</span>
-          </div>
-          <div class="tweet-login" change-background style="background-color: #55acee"
-            ng-click="authUsingTwitter()">Login with twitter</div>
-          <div class="line">
-            <span class="line-text">or</span>
-          </div>
-          <div class="github-login" change-background style="background-color: #333333"
-            ng-click="authUsingGithub()">Login with github</div>
-          <div class="line">
-            <span class="line-text">or</span>
-          </div>
-          <div class="gplus-login" change-background style="background-color: #d34836"
-            ng-click="authUsingGplus()">Login with Google+</div>
+    <div class="container" ng-controller="MainController">
+      <header class="header" ng-controller="HeaderController">
+        <span class="header-title" ng-href="#/">ChatOwls</span>
+        <div id="side-profile-menu" ng-if="!unauth">
+          <ul>
+            <li><img id="pic" class="pic" alt=""></li>
+            <li><span id="name" class="name"></span></li>
+            <li><a id="logout" ng-click='unauth()' class="fa fa-sign-out logout"></a></li>
+          </ul>
         </div>
-      </form>
+      </header>
+      <section id="main">
+        <ng-view class="content"></ng-view>
+      </section>
     </div>
     <script src="assets/js/angular.js"></script>
     <script src="assets/js/app.js"></script>

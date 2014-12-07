@@ -8,8 +8,8 @@ var gulp           = require('gulp'),
     concat         = require('gulp-concat'),
     connect        = require('gulp-connect'),
     path           = require('path'),
-    modRewrite     = require('connect-modrewrite'),
-    dynamicRouting = require('./bower_components/foundation-apps/bin/gulp-dynamic-routing');
+    modRewrite     = require('connect-modrewrite');
+    // dynamicRouting = require('./bower_components/foundation-apps/bin/gulp-dynamic-routing');
 
 // Clean build directory
 gulp.task('clean', function(cb) {
@@ -83,6 +83,7 @@ gulp.task('uglify', ['uglify-angular'], function() {
 gulp.task('uglify-angular', function() {
   var libs = [
     'bower_components/angular/angular.js',
+    'bower_components/angular-route/angular-route.js',
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/angular-sanitize/angular-sanitize.js',
     'bower_components/angularfire/dist/angularfire.js',
@@ -104,13 +105,9 @@ gulp.task('uglify-angular', function() {
 });
 
 gulp.task('copy-templates', ['copy'], function() {
-  var config = [];
+  // var config = [];
 
   return gulp.src('./client/templates/**/*.html')
-    .pipe(dynamicRouting({
-      path: 'build/assets/js/routes.js',
-      root: 'client'
-    }))
     .pipe(gulp.dest('build/templates'))
   ;
 });

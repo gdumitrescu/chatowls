@@ -1,0 +1,21 @@
+<form id="loginForm" class="login-form" ng-controller="LoginController">
+  <div class="login-box">
+    <div class="fb-login" change-background style="background-color: #3b5998"
+      ng-click="authUsingFacebook()">Login with facebook</div>
+    <div class="line">
+      <span class="line-text">or</span>
+    </div>
+    <div class="tweet-login" change-background style="background-color: #55acee"
+      ng-click="authUsingTwitter()">Login with twitter</div>
+    <div class="line">
+      <span class="line-text">or</span>
+    </div>
+    <div class="github-login" change-background style="background-color: #333333"
+      ng-click="authUsingGithub()">Login with github</div>
+    <div class="line">
+      <span class="line-text">or</span>
+    </div>
+    <div class="gplus-login" change-background style="background-color: #d34836"
+      ng-click="authUsingGplus()">Login with Google+</div>
+  </div>
+</form>
