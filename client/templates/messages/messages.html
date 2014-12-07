@@ -8,8 +8,8 @@
       <ul>
         <li class="animate-repeat"
         	ng-repeat="room in rooms | filter:searchText"
-        	ng-click="joinRoom(room.id)">
-          {{room.name}} <span style='font-size:11px;'>- {{room.by}}</span>
+        	ng-click="joinRoom(room.id)">{{room.name}}
+          <span style='font-size:11px;'>- {{room.by}}</span>
         </li>
         <li class="animate-repeat" ng-if="users.length == 0">
           <i>Fetching...</i>
