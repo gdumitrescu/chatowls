@@ -2,10 +2,16 @@
   <div id="search-box">
   <input id="search" class="search" type="text">
   </div>
-  <div id="list-box">
-  <li>Gabriel</li>
-  <li>Kleber</li>
-  <li>Rajesh</li>
+  <div id="list-box" ng-controller="UsersController">
+
+  <ul >
+      <li class="animate-repeat" ng-repeat="user in users">
+        {{user.name}} , {{user.lang}}, {{user.provider}}
+      </li>
+      <li class="animate-repeat" ng-if="users.length == 0">
+        <strong>No results found...</strong>
+      </li>
+    </ul>
   </div>
 </div>
 <div id="message-box" class="message-box" ng-controller="MessagesController">
