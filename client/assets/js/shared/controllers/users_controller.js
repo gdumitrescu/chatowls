@@ -5,7 +5,6 @@
 app.controller("UsersController", function($scope, $firebase) {
 
 	$scope.users = [];
-	var list = [];
 
 	var ref = new Firebase("https://chatowls.firebaseio.com/users");
 	
