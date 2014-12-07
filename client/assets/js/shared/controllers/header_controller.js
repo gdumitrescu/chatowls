@@ -1,4 +1,4 @@
-app.controller('HeaderCtrl', function($scope, AuthenticationService){
+app.controller('HeaderController', function($scope, AuthenticationService){
   $scope.unauth = function(){
     AuthenticationService().unauth();
   };

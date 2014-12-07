@@ -1,4 +1,4 @@
-app.factory('AuthenticationService', function($firebaseAuth){
+app.factory('AuthenticationService', function($log, $firebaseAuth, $location){
   return function() {
     var that = this;
 
@@ -10,7 +10,7 @@ app.factory('AuthenticationService', function($firebaseAuth){
       that.fAuth.child(u_id).once('value', function(snapshot) {
         return (snapshot.val() !== null);
       });
-    }
+    };
 
     that.authUsingFacebook = function(){
       that.fAuth.authWithOAuthPopup("facebook", function(error, authData){
@@ -43,19 +43,19 @@ app.factory('AuthenticationService', function($firebaseAuth){
     };
 
     that.unauth = function(){
-      console.log(1);
+      $log(1);
       that.fAuth.unauth();
-      location.href = 'index.html';
+      $location.path('/');
     };
 
     that.fAuth.onAuth(function(authData) {
-      var redirect = "messages.html";
+      var redirect = "messages";
 
-      if(typeof authData !== "undefined" && authData != null){
+      if(typeof authData !== "undefined" && authData !== null){
         var isNewUser = !that.checkIfUserExists(authData.uid);
         if (authData && isNewUser) { that.fAuth.child(authData.uid).set(authData); }
-        location.href = redirect;
-      };
+        $location.path("/messages");
+      }
     });
     
     that.getInfo = function() {

@@ -1,3 +1,3 @@
-app.controller('MessagesCtrl', function($scope, $firebase) {
+app.controller('MessagesController', function($scope, $firebase) {
 
 });
