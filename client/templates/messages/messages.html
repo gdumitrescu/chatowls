@@ -16,8 +16,11 @@
 <div id="message-box" class="message-box" ng-init="lines = []" ng-controller="MessagesController">
   <div id="message-container">
     <ul>
-      <li class="animate-repeat" ng-repeat="line in lines" style="color:red">
-        {{line}}
+      <li class="animate-repeat" ng-repeat="line in lines" >
+       
+       <span class="left"> {{ line }} </span>
+       </li>
+        
     </ul>
   </div>
   <div id="text-box">

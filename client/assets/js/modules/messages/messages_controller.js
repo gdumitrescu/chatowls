@@ -22,7 +22,7 @@ app.controller("MessagesController", function($scope, $http ,$firebase) {
             method: 'GET',
             params:
             {
-                lang: "en-"+lang,
+                lang: lang,
                 text: msg,
                 key: APIKEY
             }
@@ -37,7 +37,7 @@ app.controller("MessagesController", function($scope, $http ,$firebase) {
   $scope.send = function(keyEvent) {
         if( keyEvent.which == 13) {
                 console.log("Submitting "+ $scope.translatedText);
-	             
+	             		
 				  		$scope.lines.push($scope.translatedText);
 						$scope.msg = "";
 
