@@ -17,6 +17,11 @@
           <ul>
             <li><img id="pic" class="pic" ng-src = "{{currentUser.pic}}"alt=""></li>
             <li><span id="name" class="name">{{currentUser.name}}</span></li>
+            <li>
+				 <select ng-options = "lang as lang.name for lang in langs" ng-model="locale" ng-change = "update(locale.code)" class="lang">
+				 {{locale.code}} {{locale.name}}
+				 </select>
+            </li>
             <li><a style="cursor: pointer" id="logout" ng-href='#/logout' class="fa fa-sign-out logout"></a></li>
           </ul>
         </div>

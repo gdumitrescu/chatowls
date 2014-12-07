@@ -62,13 +62,12 @@ app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $r
         $rootScope.currentUser = that.getInfo();
       }
     });
-
-
+	
     that.getInfo = function() {
         var data = {};
-
         data.uid = fAuthData.uid;
         data.provider = fAuthData.provider;
+        data.lang = "en";
         switch (data.provider) {
           case "facebook":
             data.name = fAuthData.facebook.displayName;

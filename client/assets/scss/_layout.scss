@@ -65,6 +65,14 @@ body {
     color: #000;
 }
 
+.header #side-profile-menu .lang{
+	font-size: 14px;
+	margin-top: 10px;
+	border-radius: 10px;
+	background: #ffd20d;
+	border: 1px #333 solid;
+	-moz-appearance: dialog;
+}
 #main {
     width: 100%;
     height: calc(100% - 64px);
