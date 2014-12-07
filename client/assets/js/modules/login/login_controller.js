@@ -1,4 +1,8 @@
-app.controller('LoginController', function MessagesCtrl($scope, AuthenticationService) {
+/* global app */
+
+"use strict";
+
+app.controller("LoginController", function MessagesCtrl($scope, AuthenticationService) {
 
   $scope.authUsingFacebook = function(){
     AuthenticationService().authUsingFacebook();
