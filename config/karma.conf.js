@@ -37,9 +37,9 @@ module.exports = function(config){
     reporters: ['progress','coverage'],
 
     preprocessors: {
-      'clients/assets/js/modules/**/*.js': ['coverage'],
-      'clients/assets/js/shared/**/*.js': ['coverage'],
-      'clients/assets/js/*.js': ['coverage']
+      'clients/assets/js/modules/**/*.js': ['coverage', 'coveralls'],
+      'clients/assets/js/shared/**/*.js': ['coverage', 'coveralls'],
+      'clients/assets/js/*.js': ['coverage', 'coveralls']
     },
     
     plugins : [
@@ -49,8 +49,8 @@ module.exports = function(config){
             ],
 
     coverageReporter: {
-      type: 'html',
-      dir: 'target/coverage/'
+      type : 'lcov',
+      dir : 'target/coverage/'
     }
 
   });

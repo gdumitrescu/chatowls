@@ -5,22 +5,22 @@
 app.controller("LoginController", function MessagesCtrl($scope, AuthenticationService) {
 
   $scope.authUsingFacebook = function(){
-    new AuthenticationService().authUsingFacebook();
+    AuthenticationService().authUsingFacebook();
   };
 
   $scope.authUsingTwitter = function(){
-    new AuthenticationService().authUsingTwitter();
+    AuthenticationService().authUsingTwitter();
   };
 
   $scope.authUsingGithub = function(){
-    new AuthenticationService().authUsingGithub();
+    AuthenticationService().authUsingGithub();
   };
 
   $scope.authUsingGplus = function(){
-    new AuthenticationService().authUsingGplus();
+    AuthenticationService().authUsingGplus();
   };
 
   $scope.unauth = function(){
-    new AuthenticationService().unauth();
+    AuthenticationService().unauth();
   };
 });
