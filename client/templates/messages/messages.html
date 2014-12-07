@@ -6,7 +6,7 @@
 
   <ul >
       <li class="animate-repeat" ng-repeat="user in users">
-        {{user.name}} , {{user.lang}}, {{user.provider}}
+        {{user.name}} , ({{user.provider}})
       </li>
       <li class="animate-repeat" ng-if="users.length == 0">
         <strong>No results found...</strong>
