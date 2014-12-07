@@ -1,10 +1,12 @@
 "use strict";
 
-var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute']);
+var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'uuid']);
 
 app.config(function($logProvider) {
   $logProvider.debugEnabled(true);
 });
+
+app.value('FirebaseURL', "https://chatowls.firebaseio.com/");
 
 app.config(function($routeProvider) {
   $routeProvider
@@ -28,3 +30,4 @@ app.config(function($routeProvider) {
       redirectTo: '/'
     });
 });
+

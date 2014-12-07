@@ -63,6 +63,7 @@ gulp.task('uglify', ['uglify-angular'], function() {
     'bower_components/notify.js/notify.js',
     'bower_components/tether/tether.js',
     'bower_components/firebase/firebase.js',
+    'bower_components/firechat/dist/firechat.js',
     'bower_components/angularfire/dist/angularfire.js',
     'client/assets/js/auth.js',
   ];
@@ -87,6 +88,7 @@ gulp.task('uglify-angular', function() {
     'bower_components/angular-animate/angular-animate.js',
     'bower_components/angular-sanitize/angular-sanitize.js',
     'bower_components/angularfire/dist/angularfire.js',
+    'bower_components/ng-uuid/build/ng-uuid.min.js',
     'bower_components/ui-router/release/angular-ui-router.js',
     'client/assets/js/app.js',
     'client/assets/js/modules/**/*.js',
