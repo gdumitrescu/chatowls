@@ -54,7 +54,7 @@ app.factory('AuthenticationService', function($log, $firebaseAuth, $location){
       if(typeof authData !== "undefined" && authData !== null){
         var isNewUser = !that.checkIfUserExists(authData.uid);
         if (authData && isNewUser) { that.fAuth.child(authData.uid).set(authData); }
-        $location.path('/messages');
+        $location.path("/messages");
       }
     });
     
