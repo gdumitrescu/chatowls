@@ -26,12 +26,12 @@ app.controller("MessagesController", function($scope, $http, $firebase, $localSt
 			$scope.msg = "";
         }
   }
-  $scope.showaddroom = function(){
-	document.querySelector("#member-box").style.display = "none";
-	document.querySelector("#room-box").style.display = "block";
+  $scope.showmem = function(){
+	document.querySelector("#room-box").style.display = "none";
+	document.querySelector("#member-box").style.display = "block";
   };
 	
-  $scope.closeaddroom = function(){
-		document.querySelector("#room-box").style.display = "none";
+  $scope.hidemem = function(){
+		document.querySelector("#member-box").style.display = "none";
   };
 });
