@@ -25,5 +25,4 @@ app.controller("RoomController", function($scope, $http, $firebase, $localStorag
 	$scope.closeaddroom = function(){
 		document.querySelector("#room-box").style.display = "none";
 	};
-  
 });

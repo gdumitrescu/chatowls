@@ -1,3 +1,5 @@
+/* global module */
+
 'use strict';
 
 module.exports = function(config){
@@ -20,38 +22,44 @@ module.exports = function(config){
       'test/lib/mock.firebase.js',
       'test/unit/**/*.js'
     ],
-    
+
     port: 9876,
-    
+
     logLevel: config.LOG_INFO,
-    
+
     colors: true,
-    
+
     autoWatch : true,
-    
+
     singleRun: false,
-    
+
     frameworks: ['jasmine'],
 
     browsers : ['PhantomJS'],
-    
-    reporters: ['progress','coverage'],
+
+    reporters: ['progress', 'coverage', 'coveralls', 'html'],
 
     preprocessors: {
-      'clients/assets/js/modules/**/*.js': ['coverage', 'coveralls'],
-      'clients/assets/js/shared/**/*.js': ['coverage', 'coveralls'],
-      'clients/assets/js/*.js': ['coverage', 'coveralls']
+      'client/assets/js/modules/**/*.js': ['coverage'],
+      'client/assets/js/shared/**/*.js': ['coverage'],
+      'client/assets/js/*.js': ['coverage']
     },
-    
+
     plugins : [
             'karma-jasmine',
             'karma-coverage',
+            'karma-coveralls',
+            'karma-html-reporter',
             'karma-phantomjs-launcher'
             ],
 
     coverageReporter: {
       type : 'lcov',
       dir : 'target/coverage/'
+    },
+
+    htmlReporter: {
+      outputDir: 'target/html/'
     }
 
   });

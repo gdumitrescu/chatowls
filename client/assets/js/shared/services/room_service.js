@@ -1,4 +1,4 @@
-/* global app*/
+/* global app, Firebase */
 
 "use strict";
 
@@ -7,11 +7,10 @@ app.factory("RoomService", function($log, $firebaseAuth, $location, $rootScope, 
     var that = this;
 
     var roomsRef = new Firebase(FIREBASE_URL + "/rooms");
-      var profile = JSON.parse(localStorage.getItem('currentUser'));
+    var profile = JSON.parse(localStorage.getItem('currentUser'));
 
 
     that.createRoom = function(room_name) {
-      
          var newRoom = roomsRef.push({
              
             createdByName: profile.name,
@@ -40,8 +39,6 @@ app.factory("RoomService", function($log, $firebaseAuth, $location, $rootScope, 
 				members: members
 			 });
 	}
-     
-
     return that;
 
   };

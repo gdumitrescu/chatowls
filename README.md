@@ -20,3 +20,11 @@
 - The commit message `fix(user): ensure email is required` would match `type: fix`, `scope: user`, `description: ensure email is required`
 - Valid types: valid` %{type}` values, e.g. chore, feat, refactor
 - Body length: 72
+
+#### Usage
+
+- `$ npm install -g foundation-cli bower gulp karma-cli`
+- `$ bundle install`
+- `$ npm install`
+- `$ bower install`
+- `$ npm start`
