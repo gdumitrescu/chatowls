@@ -1,12 +1,17 @@
-"use strict";
+/* global angular */
 
-var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'uuid']);
+'use strict';
+
+var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'ngStorage']);
+
+app.constant('FIREBASE_URL', 'https://chatowls.firebaseio.com');
+
+app.constant('TRANSLATE_URL', 'https://translate.yandex.net/api/v1.5/tr.json/translate');
+app.constant('TRANSLATE_APIKEY', 'trnsl.1.1.20141204T090257Z.23d0a0607bff2584.f2816ba8b99aafd0c78391b4154631a6e560c8cf');
 
 app.config(function($logProvider) {
   $logProvider.debugEnabled(true);
 });
-
-app.value('FirebaseURL', "https://chatowls.firebaseio.com/");
 
 app.config(function($routeProvider) {
   $routeProvider
@@ -30,4 +35,3 @@ app.config(function($routeProvider) {
       redirectTo: '/'
     });
 });
-
