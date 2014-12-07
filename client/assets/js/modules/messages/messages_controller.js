@@ -1,3 +1,7 @@
-app.controller('MessagesController', function($scope, $firebase) {
+/* global app */
+
+"use strict";
+
+app.controller("MessagesController", function($scope, $firebase) {
 
 });

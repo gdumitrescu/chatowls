@@ -147,3 +147,11 @@ gulp.task('default', ['build', 'server:start'], function() {
   // Watch Angular templates
   gulp.watch(['./client/templates/**/*.html'], ['copy-templates']);
 });
+
+
+gulp.task('coveralls', function () {
+  var coveralls = require('gulp-coveralls');
+
+  return gulp.src('target/coverage/**/lcov.info')
+    .pipe(coveralls());
+});

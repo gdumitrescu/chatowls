@@ -1,3 +1,6 @@
-app.controller('LogoutController', function($scope) {
+/* global app */
+"use strict";
+
+app.controller("LogoutController", function($scope) {
 
 });
