@@ -2,7 +2,7 @@
 
 "use strict";
 
-app.controller("UsersController", function($scope, $firebase, FIREBASE_URL) {
+app.controller("UsersController", function($scope, $firebase, FIREBASE_URL,RoomService) {
 
 	$scope.users = [];
 
@@ -11,7 +11,7 @@ app.controller("UsersController", function($scope, $firebase, FIREBASE_URL) {
   
 	ref.orderByChild("expires").on("child_added", function(snapshot) {
 	  if(snapshot.val().provider == "facebook" && snapshot.val().facebook.cachedUserProfile.locale != undefined){
-	  	//console.log(snapshot.val().facebook.cachedUserProfile.first_name + " uses " + snapshot.val().facebook.cachedUserProfile.locale + " language");
+	  //console.log(snapshot.val().facebook.cachedUserProfile.first_name + " uses " + snapshot.val().facebook.cachedUserProfile.locale + " language");
 	  	var user = { 'name': snapshot.val().facebook.cachedUserProfile.first_name , 'lang' : snapshot.val().facebook.cachedUserProfile.locale, 'provider' : 'facebook'};
 	  	$scope.$apply(function(){
 	  		$scope.users.push(user);
@@ -44,6 +44,11 @@ app.controller("UsersController", function($scope, $firebase, FIREBASE_URL) {
 	});
 
 
+	$scope.createRoom = function(event) {
+		event.preventDefault();
+		RoomService().createRoom("Some room");
+		console.log("Got here");
+	}
 
 	console.log($scope.users);
 	
@@ -55,4 +60,5 @@ app.controller("UsersController", function($scope, $firebase, FIREBASE_URL) {
 	$scope.closeaddroom = function(){
 		document.querySelector("#room-box").style.display = "none";
 	};
+
 });

@@ -22,16 +22,9 @@ app.controller("MessagesController", function($scope, $http, $firebase, $localSt
 
   $scope.send = function(keyEvent) {
         if( keyEvent.which == 13) {
-	  		$scope.lines.push($scope.translatedText);
-			$scope.msg = "";
+        		$scope.lines.push($scope.translatedText);
+        	   $scope.msg = "";
         }
   }
-  $scope.showmem = function(){
-	document.querySelector("#room-box").style.display = "none";
-	document.querySelector("#member-box").style.display = "block";
-  };
-	
-  $scope.hidemem = function(){
-		document.querySelector("#member-box").style.display = "none";
-  };
+  
 });

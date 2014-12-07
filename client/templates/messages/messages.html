@@ -20,11 +20,12 @@
 		<div class="desc">
 			<input type= "text" placeholder = "Enter a name"></input>
 		</div>
+		<a href="#" class="button small" ng-click="createRoom($event)">Create</a>
 	</div>
  </div>
 </div>
-<div id="message-box" class="message-box" ng-init="lines = []" ng-controller="MessagesController">
-  <div id="room-details">
+
+  <div id="room-details" ng-controller="RoomController">
 	  <span class="room-title">Room title</span>
 	  <span class="fa fa-users room-users" ng-click = "showmem()"> Members</span>  
 		<div id="member-box" class="black-box"  style="display: none;">
@@ -36,18 +37,22 @@
 				<li>Member 3</li>
 			</div>
 		</div>
+		<div id="message-box" class="message-box" ng-init="lines = []" ng-controller="MessagesController">
+			<div id="message-container">
+				<ul>
+				  <li class="animate-repeat" ng-repeat="line in lines" >
+				   
+				   <span class="left"> {{ line }} </span>
+				   </li>
+				    
+				</ul>
+			</div>
+			<div id="text-box">
+			<textarea id="text-area" ng-model="msg" placeholder = "Enter message" ng-keypress="send($event)"></textarea>
+			</div>
+
+  		</div>
   </div>
-  <div id="message-container">
-    <ul>
-      <li class="animate-repeat" ng-repeat="line in lines" >
-       
-       <span class="left"> {{ line }} </span>
-       </li>
-        
-    </ul>
-  </div>
-  <div id="text-box">
-	<textarea id="text-area" ng-model="msg" placeholder = "Enter message" ng-keypress="send($event)"></textarea>
-  </div>
-  </div>
-</div>
+
+
+  
