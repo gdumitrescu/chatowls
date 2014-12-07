@@ -2,11 +2,8 @@
 
 "use strict";
 
-app.controller("MessagesController", function($scope, $http, $firebase, $localStorage) {
+app.controller("MessagesController", function($scope, $http, $firebase, $localStorage, TRANSLATE_URL, TRANSLATE_APIKEY) {
 	
-	 var APIKEY = "trnsl.1.1.20141204T090257Z.23d0a0607bff2584.f2816ba8b99aafd0c78391b4154631a6e560c8cf";
-     var TRANSLATEURL = "https://translate.yandex.net/api/v1.5/tr.json/translate";
-
   $scope.$watch('msg', function(){
      // $log.log(arguments);
 
@@ -18,13 +15,13 @@ app.controller("MessagesController", function($scope, $http, $firebase, $localSt
 
     $http(
      {
-            url: TRANSLATEURL,
+            url: TRANSLATE_URL,
             method: 'GET',
             params:
             {
                 lang: lang,
                 text: msg,
-                key: APIKEY
+                key: TRANSLATE_APIKEY
             }
       }
     ).success(function(data) {
