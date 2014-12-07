@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HackOwls - ChatOwls</title>
-    <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <div class="container" ng-controller="MainController">
@@ -15,12 +15,14 @@
         <span class="header-title" ng-href="#/">ChatOwls</span>
         <div id="side-profile-menu" ng-if="currentUser">
           <ul>
-            <li><img id="pic" class="pic" ng-src = "{{currentUser.pic}}"alt=""></li>
+            <li><img id="pic" class="pic" ng-src="{{currentUser.pic}}" alt=""></li>
             <li><span id="name" class="name">{{currentUser.name}}</span></li>
             <li>
-				 <select ng-options = "lang as lang.name for lang in langs" ng-model="locale" ng-change = "update(locale.code)" class="lang">
-				 {{locale.code}} {{locale.name}}
-				 </select>
+    				  <select class="lang"
+    				    ng-options="lang as lang.name for lang in langs" 
+    				    ng-model="locale" 
+    				    ng-change="update(locale.code)">{{locale.code}} {{locale.name}}
+    				  </select>
             </li>
             <li><a style="cursor: pointer" id="logout" ng-href='#/logout' class="fa fa-sign-out logout"></a></li>
           </ul>
