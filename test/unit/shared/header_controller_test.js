@@ -5,6 +5,7 @@ describe("Controller: HeaderController", function () {
 
   beforeEach(function() {
     module('mock.firebase');
+    module('ngStorage');
     module('app');
   });
 

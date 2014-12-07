@@ -6,6 +6,7 @@ describe("Controller: LoginController", function () {
 
   beforeEach(function() {
     module("mock.firebase");
+    module("ngStorage");
     module("app");
   });
 
