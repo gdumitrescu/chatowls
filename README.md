@@ -17,10 +17,10 @@ With this premise, we believe the application would address theme #5 and #1.
 ### Screenshots
 
 - Login Page
-[![Koding Hackathon](images/HackOwls-ChatOwls-LoginPage.png?raw=true "Koding Hackathon")](https://koding.com/Hackathon)
+[![ChatOwls](images/HackOwls-ChatOwls-LoginPage.png?raw=true "ChatOwls")](http://gdumitrescu.koding.io)
 
 - Chat Rooms
-[![Koding Hackathon](images/HackOwls-ChatOwls-ChatRooms.png?raw=true "Koding Hackathon")](https://koding.com/Hackathon)
+[![ChatOwls](images/HackOwls-ChatOwls-ChatRooms.png?raw=true "ChatOwls")](http://gdumitrescu.koding.io)
 
 
 ### APIs used
