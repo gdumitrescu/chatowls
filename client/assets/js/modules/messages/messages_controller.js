@@ -37,7 +37,7 @@ app.controller("MessagesController", function($scope, $http ,$firebase) {
   $scope.send = function(keyEvent) {
         if( keyEvent.which == 13) {
                 console.log("Submitting "+ $scope.translatedText);
-	             
+	             		
 				  		$scope.lines.push($scope.translatedText);
 						$scope.msg = "";
 
