@@ -11,6 +11,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   transition: 0.5s background;
+  overflow: hidden;
 }
 .header {
   background: #ffd20d;
@@ -85,9 +86,10 @@ body {
   background: #444;
   color: #f1f1f1;
   float: left;
-  min-height: 100%;
+  height: 100%;
   margin: 0;
   width: 220px;
+  overflow-y: auto;
 }
 #side-box #search-box {
   margin: 5px auto;
