@@ -1,5 +1,6 @@
-## ChatOwls [![Build Status](https://drone.io/github.com/HackOwls/chatowls/status.png)](https://drone.io/github.com/HackOwls/chatowls/latest)
-
+## ChatOwls 
+[![Build Status](https://drone.io/github.com/HackOwls/chatowls/status.png)](https://drone.io/github.com/HackOwls/chatowls/latest)
+[![Coverage Status](https://img.shields.io/coveralls/HackOwls/chatowls.svg)](https://coveralls.io/r/HackOwls/chatowls)
 
 [![Stories in Ready](https://badge.waffle.io/HackOwls/chatowls.png?label=ready&title=Ready)](https://waffle.io/HackOwls/chatowls)
 [![Stories in Progress](https://badge.waffle.io/HackOwls/chatowls.png?label=doing&title=Doing)](https://waffle.io/HackOwls/chatowls)
