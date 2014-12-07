@@ -26,6 +26,7 @@
     "karma-html-reporter": "^0.2.4",
     "karma-jasmine": "^0.3.2",
     "karma-phantomjs-launcher": "^0.1.4",
+    "lcov-filter": "0.0.1",
     "rimraf": "^2.2.8",
     "run-sequence": "^1.0.1",
     "through2": "^0.6.2"
