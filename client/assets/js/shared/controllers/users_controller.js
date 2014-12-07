@@ -47,5 +47,12 @@ app.controller("UsersController", function($scope, $firebase, FIREBASE_URL) {
 
 	console.log($scope.users);
 	
-
+	$scope.showaddroom = function(){
+		document.querySelector("#member-box").style.display = "none";
+		document.querySelector("#room-box").style.display = "block";
+	};
+	
+	$scope.closeaddroom = function(){
+		document.querySelector("#room-box").style.display = "none";
+	};
 });
