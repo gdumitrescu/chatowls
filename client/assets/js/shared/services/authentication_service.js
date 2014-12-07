@@ -5,7 +5,6 @@ app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $r
     that.fAuth = new Firebase("https://chatowls.firebaseio.com/users");
     that.fAuthData = fAuth.getAuth();
 
-
     that.checkIfUserExists = function(u_id) {
       that.fAuth.child(u_id).once('value', function(snapshot) {
         return (snapshot.val() !== null);
@@ -44,18 +43,19 @@ app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $r
 
     that.unauth = function(){
       that.fAuth.unauth();
+	  localStorage.removeItem('currentUser');
       $rootScope.currentUser = null;
-      $location.path('/login');
+      window.location.href = '/';
     };
 
     that.fAuth.onAuth(function(authData) {
       var redirect = "messages";
-      console.log(2);
       if(typeof authData !== "undefined" && authData !== null){
         var isNewUser = !that.checkIfUserExists(authData.uid);
         if (authData && isNewUser) { that.fAuth.child(authData.uid).set(authData); }
+        window.location.href = "/";
+        that.fAuthData = authData;
         $rootScope.currentUser = that.getInfo();
-        $location.path("/messages");
       }
     });
 

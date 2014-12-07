@@ -7,16 +7,17 @@
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
     <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
   <body>
     <div class="container" ng-controller="MainController">
       <header class="header" ng-controller="HeaderController">
         <span class="header-title" ng-href="#/">ChatOwls</span>
-        <div id="side-profile-menu" ng-if="!unauth">
+        <div id="side-profile-menu" ng-if="currentUser">
           <ul>
-            <li><img id="pic" class="pic" alt=""></li>
-            <li><span id="name" class="name"></span></li>
-            <li><a id="logout" ng-click='unauth()' class="fa fa-sign-out logout"></a></li>
+            <li><img id="pic" class="pic" ng-src = "{{currentUser.pic}}"alt=""></li>
+            <li><span id="name" class="name">{{currentUser.name}}</span></li>
+            <li><a style="cursor: pointer" id="logout" ng-href='#/logout' class="fa fa-sign-out logout"></a></li>
           </ul>
         </div>
       </header>
