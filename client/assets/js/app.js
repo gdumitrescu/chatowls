@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute']);
+var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'ngStorage']);
 
 app.config(function($logProvider) {
   $logProvider.debugEnabled(true);

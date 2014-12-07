@@ -2,7 +2,7 @@
 
 "use strict";
 
-app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $rootScope){
+app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $rootScope, $localStorage){
   return function() {
     var that = this;
 
