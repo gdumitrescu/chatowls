@@ -24,6 +24,22 @@ app.factory("RoomService", function($log, $firebaseAuth, $location, $rootScope, 
      console.log("generated room "+newRoom.key());
      return newRoom;
    }
+   
+	that.joinRoom = function(room_name) {
+			 var room = roomsRef.child(room_name) , members = [];
+			 room.child("members").on("child_added", function(snapshot){
+					members[snapshot.key()] = snapshot.val();
+			 });
+			 for(var i=0; i < members.length; i++){
+				if(members[i].uid == profile.uid) break;
+			 }
+			 
+			 if(i == members.length) members.push({"uid" : profile.uid}); //to ensure not inserted again
+			
+			 room.update({
+				members: members
+			 });
+	}
      
 
     return that;

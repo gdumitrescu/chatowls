@@ -4,61 +4,26 @@
 
 app.controller("UsersController", function($scope, $firebase, FIREBASE_URL,RoomService) {
 
-	$scope.users = [];
+	$scope.rooms = [];
 
-	var ref = new Firebase(FIREBASE_URL + "/users");
-	
-  
-	ref.orderByChild("expires").on("child_added", function(snapshot) {
-	  if(snapshot.val().provider == "facebook" && snapshot.val().facebook.cachedUserProfile.locale != undefined){
-	  //console.log(snapshot.val().facebook.cachedUserProfile.first_name + " uses " + snapshot.val().facebook.cachedUserProfile.locale + " language");
-	  	var user = { 'name': snapshot.val().facebook.cachedUserProfile.first_name , 'lang' : snapshot.val().facebook.cachedUserProfile.locale, 'provider' : 'facebook'};
+	var ref = new Firebase(FIREBASE_URL + "/rooms");
+	ref.on("child_added", function(snapshot) {
+	   	var room = {'id': snapshot.key(),'name':snapshot.val().title, 'by':snapshot.val().createdByName};
 	  	$scope.$apply(function(){
-	  		$scope.users.push(user);
-	  	});
-	  }
-	  else if (snapshot.val().provider == "github" && snapshot.val().github.cachedUserProfile.location != undefined){
-	  	//console.log(snapshot.val().twitter.cachedUserProfile.login + " is in " + snapshot.val().github.cachedUserProfile.location + " " );
-	  	var user = { 'name': snapshot.val().twitter.cachedUserProfile.login , 'lang' : snapshot.val().github.cachedUserProfile.location, 'provider':'github'};
-	  	$scope.$apply(function(){
-	  		$scope.users.push(user);
-	  	});
-	  }
-	  else if (snapshot.val().provider == "twitter" && snapshot.val().twitter.cachedUserProfile.lang != undefined){
-	  	//console.log(snapshot.val().twitter.cachedUserProfile.name + " uses " +  snapshot.val().twitter.cachedUserProfile.lang + " "  );
-	  	var user = {'name': snapshot.val().twitter.cachedUserProfile.name , 'lang' : snapshot.val().twitter.cachedUserProfile.lang, 'provider':'twitter'};
-	  	$scope.$apply(function(){
-	  		$scope.users.push(user);
-	   });
-	  }
-	  else if (snapshot.val().provider == "google" && snapshot.val().google.cachedUserProfile.locale != undefined){
-	  	//console.log(snapshot.val().google.cachedUserProfile.given_name+ " uses " + snapshot.val().google.cachedUserProfile.locale + " language");
-	  	var user = {'name':snapshot.val().google.cachedUserProfile.given_name, 'lang':snapshot.val().google.cachedUserProfile.locale, 'provider':'google' };
-	  	$scope.$apply(function(){
-	  		$scope.users.push(user);
+	  		$scope.rooms.push(room);
 	    });
-	  }
-	  else {
-	  	console.log("Unknown to retieve "+snapshot.val());
-	  }
 	});
-
-
-	$scope.createRoom = function(event) {
-		event.preventDefault();
-		RoomService().createRoom("Some room");
-		console.log("Got here");
-	}
-
-	console.log($scope.users);
+	
+	$scope.joinRoom = function(room){
+		var data = JSON.parse(localStorage.getItem("currentUser"));
+		data.room = room;
+		localStorage.setItem("currentUser", JSON.stringify(data));
+		RoomService().joinRoom(room);
+	};
 	
 	$scope.showaddroom = function(){
 		document.querySelector("#member-box").style.display = "none";
 		document.querySelector("#room-box").style.display = "block";
-	};
-	
-	$scope.closeaddroom = function(){
-		document.querySelector("#room-box").style.display = "none";
 	};
 
 });
