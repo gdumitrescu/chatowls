@@ -2,7 +2,7 @@
 
 "use strict";
 
-app.controller("MessagesController", function($scope, $http, $firebase, $localStorage, TRANSLATE_URL, TRANSLATE_APIKEY) {
+app.controller("MessagesController", function($scope, $http, $firebase, $localStorage, TRANSLATE_URL, TRANSLATE_APIKEY,TranslationService) {
 	
   $scope.$watch('msg', function(){
      // $log.log(arguments);
@@ -13,31 +13,17 @@ app.controller("MessagesController", function($scope, $http, $firebase, $localSt
      if($scope.msg != undefined && $scope.msg != null )
      		msg = $scope.msg.replace(/(\r\n|\n|\r)/gm,"");
 
-    $http(
-     {
-            url: TRANSLATE_URL,
-            method: 'GET',
-            params:
-            {
-                lang: lang,
-                text: msg,
-                key: TRANSLATE_APIKEY
-            }
-      }
-    ).success(function(data) {
-    	$scope.translatedText = data.text[0];
-        console.log(data);
-    });
+     TranslationService.translate(msg,lang,function(data){
+     	$scope.translatedText = data;
+     })
+    
 
   });
 
   $scope.send = function(keyEvent) {
         if( keyEvent.which == 13) {
-                console.log("Submitting "+ $scope.translatedText);
-	             		
-				  		$scope.lines.push($scope.translatedText);
-						$scope.msg = "";
-
+	  		$scope.lines.push($scope.translatedText);
+			$scope.msg = "";
         }
   }
 
