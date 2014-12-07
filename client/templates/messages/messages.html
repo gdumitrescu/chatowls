@@ -1,56 +1,63 @@
-<<<<<<< HEAD
-		<div id="side-box" class="side-box">
-		  <div id="search-box" ng-controller="UsersController">
-			  <input ng-model="searchText" class="search">
-			  <div id="list-box" >
-				<div class = "create-room" ng-click = "showaddroom()">
-					<span class="fa fa-plus-square-o"> Create room </span>
-				</div>
-				<ul>
-					<li class="animate-repeat" ng-repeat="room in rooms | filter:searchText" ng-click = "joinRoom(room.id)">
-					  {{room.name}} <span style='font-size:11px;'>- {{room.by}}</span>
-					</li>
-					<li class="animate-repeat" ng-if="users.length == 0">
-					  <i>Fetching...</i>
-					</li>
-				 </ul>
-			  </div>
-		 </div>
-		</div>
-		<div id="message-box" class="message-box" ng-init="lines = []" ng-controller="MessagesController">
-		  <div id="room-details" ng-controller="RoomController">
-			<div id="room-box" class="black-box" style="display: none;">
-				<div class="fa fa-times" style="float:right;cursor:pointer;color: red;" ng-click = "closeaddroom()"></div>
-				<div class="title">Create Room</div>
-				<div class="desc">
-					<input type= "text" placeholder = "Enter a name" ng-model = "rname"></input>
-				</div>
-				<span class="button small" style="margin: 0; margin-top: -60px;" ng-click="makeRoom()">Create</span>
-			</div>
-			  <span class="room-title">Room title</span>
-			  <span class="fa fa-users room-users" ng-click = "showmem()"> Members</span>  
-				<div id="member-box" class="black-box"  style="display: none;">
-					<div class="fa fa-times" style="float:right;cursor:pointer;color: red;" ng-click = "hidemem()"></div>
-					<div class="title">Members</div>
-					<div class="desc">
-						<li>Member 1</li>
-						<li>Member 2</li>
-						<li>Member 3</li>
-					</div>
-				</div>
-		  </div>
-			<div id="message-container">
-				<ul>
-				  <li class="animate-repeat" ng-repeat="line in lines" >
-				   
-				   <span class="left"> {{ line }} </span>
-				   </li>
-				    
-				</ul>
-			</div>
-			<div id="text-box">
-			<textarea id="text-area" ng-model="msg" placeholder = "Enter message" ng-keypress="send($event)"></textarea>
-			</div>
-
-  		</div>
+<div id="side-box" class="side-box">
+  <div id="search-box" ng-controller="UsersController">
+    <input ng-model="searchText" class="search">
+    <div id="list-box">
+      <div class="create-room" ng-click="showaddroom()">
+        <span class="fa fa-plus-square-o"> Create room </span>
+      </div>
+      <ul>
+        <li class="animate-repeat"
+        	ng-repeat="room in rooms | filter:searchText"
+        	ng-click="joinRoom(room.id)">
+          {{room.name}} <span style='font-size:11px;'>- {{room.by}}</span>
+        </li>
+        <li class="animate-repeat" ng-if="users.length == 0">
+          <i>Fetching...</i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="message-box" class="message-box"
+	ng-init="lines = []" ng-controller="MessagesController">
+  <div id="room-details" ng-controller="RoomController">
+    <div id="room-box" class="black-box" style="display: none;">
+      <div class="fa fa-times"
+      	style="float:right;cursor:pointer;color: red;"
+      	ng-click="closeaddroom()"></div>
+      <div class="title">Create Room</div>
+      <div class="desc">
+        <input type="text" placeholder="Enter a name"	ng-model="rname">
+      </div>
+      <span class="button small"
+      	style="margin: 0; margin-top: -60px;"
+      	ng-click="makeRoom()">Create</span>
+    </div>
+    <span class="room-title">Room title</span>
+    <span class="fa fa-users room-users" ng-click="showmem()"> Members</span>
+    <div id="member-box" class="black-box" style="display: none;">
+      <div class="fa fa-times"
+      	style="float:right;cursor:pointer;color: red;"
+      	ng-click="hidemem()"></div>
+      <div class="title">Members</div>
+      <div class="desc">
+        <li>Member 1</li>
+        <li>Member 2</li>
+        <li>Member 3</li>
+      </div>
+    </div>
+  </div>
+  <div id="message-container">
+    <ul>
+      <li class="animate-repeat"
+      	ng-repeat="line in lines track by $index">
+        <span class="left"> {{ line }} </span>
+      </li>
+    </ul>
+  </div>
+  <div id="text-box">
+    <textarea id="text-area" placeholder="Enter message"
+    	ng-model="msg"
+    	ng-keypress="send($event)"></textarea>
+  </div>
 </div>
