@@ -1,32 +1,23 @@
 <div id="side-box" class="side-box">
   <div id="search-box" ng-controller="UsersController">
-      <input ng-model="searchText" style="color:red">
-        <table id="searchTextResults">
-          <tr><th>Name</th><th>Provider</th></tr>
-          <tr ng-repeat="user in users | filter:searchText">
-            <td>{{user.name}}</td>
-            <td>{{user.provider}}</td>
-          </tr>
-        </table>
-        <hr />
-<h3> All Users </h3>
-  <div id="list-box" >
-    <ul >
-        <li class="animate-repeat" ng-repeat="user in users">
-          {{user.name}} , ({{user.provider}})
-        </li>
-        <li class="animate-repeat" ng-if="users.length == 0">
-          <strong>No results found...</strong>
-        </li>
-      </ul>
-  </div>
+      <input ng-model="searchText" class="search">
+	  <div id="list-box" >
+		<ul>
+			<li class="animate-repeat" ng-repeat="user in users | filter:searchText">
+			  {{user.name}} , ({{user.provider}})
+			</li>
+			<li class="animate-repeat" ng-if="users.length == 0">
+			  <i>Fetching...</i>
+			</li>
+		  </ul>
+	  </div>
+ </div>
 </div>
 <div id="message-box" class="message-box" ng-controller="MessagesController">
   <div id="message-container">
   </div>
   <div id="text-box">
-  <div id="text-area" contenteditable="true" ng-model="msg">
+  <textarea id="text-area" ng-model="msg" placeholder = "Enter message">
   </div>
-  <button id="send-button">Send</button>
   </div>
 </div>
