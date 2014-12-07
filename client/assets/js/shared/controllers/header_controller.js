@@ -1,4 +1,4 @@
-app.controller('HeaderController', function($scope, AuthenticationService){
+app.controller('HeaderController', function($scope, $localStorage, AuthenticationService){
 	$scope.langs = [
 					{code : "ar", name: "Arabic"}, {code :"az", name:"Azerbaijani"},{code :"be", name:"Belarusian"},{code :"bg", name: "Bulgarian"},{code :"bs", name:"Bosnian"},{code :"ca", name:"Catalan"},{code :"cs", name: "Czech"},{code :"da",name:"Danish"},
 					{code : "de", name: "German"},{code :"el", name:"Greek"},{code :"en", name:"English"},{code: "es", name: "Spanish"},{code :"et", name:"Estonian"},{code :"fi", name:"Finnish"},{code :"fr" , name: "French"},{code :"he" , name:"Hebrew"},

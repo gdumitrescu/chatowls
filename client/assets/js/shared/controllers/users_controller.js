@@ -2,11 +2,11 @@
 
 "use strict";
 
-app.controller("UsersController", function($scope, $firebase) {
+app.controller("UsersController", function($scope, $firebase, FIREBASE_URL) {
 
 	$scope.users = [];
 
-	var ref = new Firebase("https://chatowls.firebaseio.com/users");
+	var ref = new Firebase(FIREBASE_URL + "/users");
 	
   
 	ref.orderByChild("expires").on("child_added", function(snapshot) {

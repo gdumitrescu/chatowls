@@ -1,4 +1,4 @@
-app.controller('MainController', function($scope, $rootScope, $location, AuthenticationService){
+app.controller('MainController', function($scope, $rootScope, $location, $localStorage, AuthenticationService){
 
   $scope.currentUser = null;
   $rootScope.currentUser = null;

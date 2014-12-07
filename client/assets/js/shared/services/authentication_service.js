@@ -2,11 +2,11 @@
 
 "use strict";
 
-app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $rootScope){
+app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $rootScope, $localStorage, FIREBASE_URL){
   return function() {
     var that = this;
 
-    that.fAuth = new Firebase("https://chatowls.firebaseio.com/users");
+    that.fAuth = new Firebase(FIREBASE_URL + "/users");
     that.fAuthData = fAuth.getAuth();
 
     that.checkIfUserExists = function(u_id) {
