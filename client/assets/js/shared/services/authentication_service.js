@@ -50,7 +50,7 @@ app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $r
 
     that.fAuth.onAuth(function(authData) {
       var redirect = "messages";
-      console.log(2);
+
       if(typeof authData !== "undefined" && authData !== null){
         var isNewUser = !that.checkIfUserExists(authData.uid);
         if (authData && isNewUser) { that.fAuth.child(authData.uid).set(authData); }
