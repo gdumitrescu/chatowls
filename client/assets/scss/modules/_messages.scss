@@ -8,8 +8,34 @@
   width: calc(100% - 220px);
   background: #fff;
 }
+
+#message-box #room-details {
+  height: 39px;
+  line-height: 39px;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px #ffd20d solid;
+  color: #333;
+}
+#message-box #room-details span{
+	margin: 0 10px;
+}
+#message-box #room-details .room-users{
+	background: #ffd20d;
+	color: #444;
+	padding: 7px;
+	cursor:pointer;
+	border-radius: 20px;
+	font-size: 15px;
+	transition: 0.5s all;
+	border: 1px solid #ffd20d;
+}
+
+#message-box #room-details .room-users:hover{
+	background: #fff;
+}
 #message-box #message-container {
-  height: calc(100% - 101px);
+  height: calc(100% - 141px);
   width: 100%;
   color: #333;
   overflow-y: auto;

@@ -115,8 +115,23 @@ body {
   text-align: center;
   width: 90%;
 }
+
+#side-box #list-box .create-room{
+	padding: 5px 10px;
+	font-size: 16px; 
+	border: 1px #fff solid;
+	border-radius: 10px;
+	cursor:pointer;
+	transition: 0.5s all;
+}
+
+#side-box #list-box .create-room:hover{
+	background: #fff;
+	color: #444;
+}
 #side-box #list-box ul{
 	margin: 0em;
+	margin-top: 15px;
 }
 #side-box #list-box li {
   background: #555;
@@ -126,4 +141,46 @@ body {
   margin: 1px 0;
   padding: 10px 5px;
   text-align: left;
+}
+.black-box{
+	width: 280px;
+	height: 280px;
+	padding: 20px;
+	background: #fff;
+	box-shadow: 0px 0px 10px #333;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -150px;
+	margin-left: -150px;
+}
+
+.black-box .title, .desc input{
+	width:100%;
+	padding: 10px 0;
+	margin: 30px 0;
+	border:none;
+	border-bottom: 1px solid #ffd20d;
+	color: #333;
+	text-align:left;
+	outline: none;
+}
+.black-box .desc{
+	height: 120px;
+	overflow-y: auto;
+}
+.black-box li{
+	width: 100%;
+	font-size: 15px;
+	color: #444;
+	list-style:none;
+	text-align:left;
+}
+.black-box .desc input{
+	width: 100%;
+	padding: 10px 5px;
+	border: 1px solid #ffd20d;
+}
+.black-box .desc input:focus, .black-box .desc input:hover{
+	border-color: #ffd20d;
 }

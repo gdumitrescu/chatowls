@@ -2,6 +2,9 @@
   <div id="search-box" ng-controller="UsersController">
       <input ng-model="searchText" class="search">
 	  <div id="list-box" >
+		<div class = "create-room" ng-model = "addRoom" ng-click = "showaddroom()">
+			<span class="fa fa-plus-square-o"> Create room </span>
+		</div>
 		<ul>
 			<li class="animate-repeat" ng-repeat="user in users | filter:searchText">
 			  {{user.name}} , ({{user.provider}})
@@ -11,9 +14,29 @@
 			</li>
 		  </ul>
 	  </div>
+	<div id="room-box" class="black-box" style="display: none;">
+		<div class="fa fa-times" style="float:right;cursor:pointer;color: red;" ng-click = "closeaddroom()"></div>
+		<div class="title">Create Room</div>
+		<div class="desc">
+			<input type= "text" placeholder = "Enter a name"></input>
+		</div>
+	</div>
  </div>
 </div>
 <div id="message-box" class="message-box" ng-init="lines = []" ng-controller="MessagesController">
+  <div id="room-details">
+	  <span class="room-title">Room title</span>
+	  <span class="fa fa-users room-users" ng-click = "showmem()"> Members</span>  
+		<div id="member-box" class="black-box"  style="display: none;">
+			<div class="fa fa-times" style="float:right;cursor:pointer;color: red;" ng-click = "hidemem()"></div>
+			<div class="title">Members</div>
+			<div class="desc">
+				<li>Member 1</li>
+				<li>Member 2</li>
+				<li>Member 3</li>
+			</div>
+		</div>
+  </div>
   <div id="message-container">
     <ul>
       <li class="animate-repeat" ng-repeat="line in lines" >
@@ -24,7 +47,7 @@
     </ul>
   </div>
   <div id="text-box">
-  <textarea id="text-area" ng-model="msg" placeholder = "Enter message" ng-keypress="send($event)">
+	<textarea id="text-area" ng-model="msg" placeholder = "Enter message" ng-keypress="send($event)"></textarea>
   </div>
   </div>
 </div>
