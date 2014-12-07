@@ -22,7 +22,7 @@ app.controller("MessagesController", function($scope, $http ,$firebase) {
             method: 'GET',
             params:
             {
-                lang: "en-"+lang,
+                lang: lang,
                 text: msg,
                 key: APIKEY
             }
