@@ -1,22 +1,26 @@
-app.controller('LoginController', function MessagesCtrl($scope, AuthenticationService) {
+/* global app */
+
+"use strict";
+
+app.controller("LoginController", function MessagesCtrl($scope, AuthenticationService) {
 
   $scope.authUsingFacebook = function(){
-    AuthenticationService().authUsingFacebook();
+    new AuthenticationService().authUsingFacebook();
   };
 
   $scope.authUsingTwitter = function(){
-    AuthenticationService().authUsingTwitter();
+    new AuthenticationService().authUsingTwitter();
   };
 
   $scope.authUsingGithub = function(){
-    AuthenticationService().authUsingGithub();
+    new AuthenticationService().authUsingGithub();
   };
 
   $scope.authUsingGplus = function(){
-    AuthenticationService().authUsingGplus();
+    new AuthenticationService().authUsingGplus();
   };
 
   $scope.unauth = function(){
-    AuthenticationService().unauth();
+    new AuthenticationService().unauth();
   };
 });

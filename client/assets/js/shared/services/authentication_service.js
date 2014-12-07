@@ -1,3 +1,7 @@
+/* global app*/
+
+"use strict";
+
 app.factory('AuthenticationService', function($log, $firebaseAuth, $location, $rootScope){
   return function() {
     var that = this;
