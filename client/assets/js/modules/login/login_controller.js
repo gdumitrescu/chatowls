@@ -1,4 +1,4 @@
-app.controller('LoginCtrl', function MessagesCtrl($scope, AuthenticationService) {
+app.controller('LoginController', function MessagesCtrl($scope, AuthenticationService) {
 
   $scope.authUsingFacebook = function(){
     AuthenticationService().authUsingFacebook();
