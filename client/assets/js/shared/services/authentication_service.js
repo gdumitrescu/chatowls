@@ -59,9 +59,10 @@ app.factory("AuthenticationService", function($log, $firebaseAuth, $location, $r
         if (authData && isNewUser) {
           that.fAuth.child(authData.uid).set(authData);
         }
-        window.location.href = "/";
+        $location.path('/messages');
         that.fAuthData = authData;
         $rootScope.currentUser = that.getInfo();
+        $rootScope.$broadcast('user.logged_in');
       }
     });
 
@@ -90,6 +91,7 @@ app.factory("AuthenticationService", function($log, $firebaseAuth, $location, $r
       }
 
       localStorage.setItem("currentUser", JSON.stringify(data));
+      console.log("getInfo", data);
       return data;
     };
 

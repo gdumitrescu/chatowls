@@ -5,7 +5,7 @@
 var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'ngStorage']);
 
 app.constant('FIREBASE_URL', 'https://chatowls.firebaseio.com');
-
+app.constant('CHATOWLS_ROOM_ID', '-Jc_SayHOm5_VSPLuRnQ');
 app.constant('TRANSLATE_URL', 'https://translate.yandex.net/api/v1.5/tr.json/translate');
 app.constant('TRANSLATE_APIKEY', 'trnsl.1.1.20141204T090257Z.23d0a0607bff2584.f2816ba8b99aafd0c78391b4154631a6e560c8cf');
 
