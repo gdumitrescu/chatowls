@@ -50,7 +50,7 @@
   <div id="message-container" scroll-glue="glued">
     <ul>
       <li class="animate-repeat"
-      	ng-repeat="line in lines track by $index">
+      	ng-repeat="line in lines track by $index | limitTo: 200 ">
         <span class="left"> {{ line.msg }} </span>
       </li>
     </ul>
