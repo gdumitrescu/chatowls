@@ -2,12 +2,13 @@
 
 "use strict";
 
-app.controller("MessagesController", function($scope, $http, $firebase, $localStorage, TRANSLATE_URL, TRANSLATE_APIKEY,TranslationService) {
+app.controller("MessagesController", function($scope, $http, $firebase, $localStorage, TRANSLATE_URL, TRANSLATE_APIKEY,TranslationService,RoomService) {
 	
+  var profile = JSON.parse(localStorage.getItem("currentUser"));
   $scope.$watch('msg', function(){
      // $log.log(arguments);
 
-     var profile = JSON.parse(localStorage.getItem("currentUser"));
+     
      var lang = profile.lang;
      var msg = "";
      if($scope.msg != undefined && $scope.msg != null )
@@ -23,8 +24,12 @@ app.controller("MessagesController", function($scope, $http, $firebase, $localSt
   $scope.send = function(keyEvent) {
         if( keyEvent.which == 13) {
         		$scope.lines.push($scope.translatedText);
+            new RoomService().addMessage("-Jca6PgRNzbfcOsj5lBR",profile.uid,$scope.msg);
         	   $scope.msg = "";
+             
+             console.log("Added");
         }
+
   }
   
 });

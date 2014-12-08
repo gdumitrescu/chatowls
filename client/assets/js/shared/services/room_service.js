@@ -45,6 +45,17 @@ app.factory("RoomService", function($log, $firebaseAuth, $location, $rootScope, 
         members: members
       });
     };
+
+    that.addMessage = function(room_name,user_name,msg) {
+      var room = roomsRef.child(room_name);
+      var newMsg = room.child("messages").push({
+        message : msg,
+        user : user_name,
+        timestamp : Date.now()
+      });
+      return newMsg;
+    }
+
     return that;
 
   };
