@@ -4,11 +4,12 @@
 
 app.controller("MessagesController", function($scope, $http, $firebase, $localStorage, TRANSLATE_URL, TRANSLATE_APIKEY,TranslationService,RoomService) {
 	
-  var profile = JSON.parse(localStorage.getItem("currentUser"));
+
+  
   $scope.$watch('msg', function(){
      // $log.log(arguments);
 
-     
+     var profile = JSON.parse(localStorage.getItem("currentUser"));
      var lang = profile.lang;
      var msg = "";
      if($scope.msg != undefined && $scope.msg != null )
@@ -20,14 +21,28 @@ app.controller("MessagesController", function($scope, $http, $firebase, $localSt
     
 
   });
+  var messagesRef = new Firebase("https://chatowls.firebaseio.com/rooms/-Jca6PgRNzbfcOsj5lBR/messages");
+  $scope.lines = [];
+
+  messagesRef.on("child_added", function(snapshot) {
+    var newMsg = snapshot.val();
+    console.log("User: " + newMsg.user);
+    console.log("Msg: " + newMsg.message);
+    var profile = JSON.parse(localStorage.getItem("currentUser"));
+    var lang = profile.lang;
+    TranslationService.translate(newMsg.message,profile.lang,function(data){
+       $scope.lines.push({'msg':data,'user':newMsg.user,'time':newMsg.timestamp});
+     })
+    
+  });
 
   $scope.send = function(keyEvent) {
         if( keyEvent.which == 13) {
-        		$scope.lines.push($scope.translatedText);
+        		//$scope.lines.push($scope.translatedText);
+            var profile = JSON.parse(localStorage.getItem("currentUser"));
+            console.log("Translated text: "+$scope.translatedText);
             new RoomService().addMessage("-Jca6PgRNzbfcOsj5lBR",profile.uid,$scope.msg);
         	   $scope.msg = "";
-             
-             console.log("Added");
         }
 
   }
