@@ -88,6 +88,7 @@ gulp.task('uglify-angular', function() {
     'bower_components/angular-sanitize/angular-sanitize.js',
     'bower_components/angularfire/dist/angularfire.js',
     'bower_components/ngstorage/ngStorage.js',
+    'bower_components/angularjs-scroll-glue/src/scrollglue.js',
     'client/assets/js/app.js',
     'client/assets/js/modules/**/*.js',
     'client/assets/js/shared/**/*.js',

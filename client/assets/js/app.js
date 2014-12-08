@@ -2,7 +2,7 @@
 
 'use strict';
 
-var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'ngStorage']);
+var app = angular.module('app', ['firebase', 'ngSanitize', 'ngRoute', 'ngStorage', 'luegg.directives']);
 
 app.constant('FIREBASE_URL', 'https://chatowls.firebaseio.com');
 
