@@ -1,8 +1,0 @@
-.DS_Store
-node_modules
-npm-debug.log
-bower_components
-build
-target
-.sass-cache
-.c9
