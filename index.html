@@ -19,8 +19,8 @@
             <li><span id="name" class="name">{{currentUser.name}}</span></li>
             <li>
     				  <select class="lang"
-    				    ng-options="lang as lang.name for lang in langs" 
-    				    ng-model="locale" 
+    				    ng-options="lang as lang.name for lang in langs"
+    				    ng-model="locale"
     				    ng-change="update(locale.code)">{{locale.code}} {{locale.name}}
     				  </select>
             </li>
@@ -32,7 +32,7 @@
         <ng-view class="content"></ng-view>
       </section>
     </div>
-    <script src="assets/js/angular.js"></script>
-    <script src="assets/js/app.js"></script>
+    <script src="/assets/js/angular.js"></script>
+    <script src="/assets/js/app.js"></script>
     </body>
 </html>
