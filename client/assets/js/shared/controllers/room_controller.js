@@ -1,30 +1,37 @@
 /* global app */
 
-"use strict";
+(function() {
 
-app.controller("RoomController", function($window, $scope, $http, $firebase, $localStorage, RoomService) {
+  "use strict";
 
-  $scope.makeRoom = function() {
-    var rname = $scope.rname;
-    if (typeof rname === "undefined") {
-      $window.alert("Room name cannot be empty!");
-    } else {
-      new RoomService().createRoom(rname);
-      window.location.href = "/";
-    }
-  };
+  app.controller("RoomController",
+    function(
+      $window, $scope, $http, $firebase, $localStorage,
+      RoomService) {
 
-  $scope.showmem = function() {
-    document.querySelector("#room-box").style.display = "none";
-    document.querySelector("#member-box").style.display = "block";
-  };
+    $scope.makeRoom = function() {
+      var rname = $scope.rname;
+      if (typeof rname === "undefined") {
+        $window.alert("Room name cannot be empty!");
+      } else {
+        new RoomService().createRoom(rname);
+        window.location.href = "/";
+      }
+    };
 
-  $scope.hidemem = function() {
-    document.querySelector("#member-box").style.display = "none";
-  };
+    $scope.showmem = function() {
+      document.querySelector("#room-box").style.display = "none";
+      document.querySelector("#member-box").style.display = "block";
+    };
 
-  $scope.closeaddroom = function() {
-    document.querySelector("#room-box").style.display = "none";
-  };
+    $scope.hidemem = function() {
+      document.querySelector("#member-box").style.display = "none";
+    };
 
-});
+    $scope.closeaddroom = function() {
+      document.querySelector("#room-box").style.display = "none";
+    };
+
+  });
+
+}());

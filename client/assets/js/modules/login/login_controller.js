@@ -1,26 +1,31 @@
 /* global app */
 
-"use strict";
+(function() {
 
-app.controller("LoginController", function MessagesCtrl($scope, AuthenticationService) {
+  "use strict";
 
-  $scope.authUsingFacebook = function(){
-    AuthenticationService().authUsingFacebook();
-  };
+  app.controller("LoginController",
+    function MessagesCtrl($scope, AuthenticationService) {
 
-  $scope.authUsingTwitter = function(){
-    AuthenticationService().authUsingTwitter();
-  };
+    $scope.authUsingFacebook = function() {
+      new AuthenticationService().authUsingFacebook();
+    };
 
-  $scope.authUsingGithub = function(){
-    AuthenticationService().authUsingGithub();
-  };
+    $scope.authUsingTwitter = function() {
+      new AuthenticationService().authUsingTwitter();
+    };
 
-  $scope.authUsingGplus = function(){
-    AuthenticationService().authUsingGplus();
-  };
+    $scope.authUsingGithub = function() {
+      new AuthenticationService().authUsingGithub();
+    };
 
-  $scope.unauth = function(){
-    AuthenticationService().unauth();
-  };
-});
+    $scope.authUsingGplus = function() {
+      new AuthenticationService().authUsingGplus();
+    };
+
+    $scope.unauth = function() {
+      new AuthenticationService().unauth();
+    };
+  });
+
+}());
