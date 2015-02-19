@@ -1,62 +1,73 @@
 /* global app, Firebase */
 
-"use strict";
+(function() {
 
-app.factory("RoomService", function($log, $firebaseAuth, $location, $rootScope, $localStorage, FIREBASE_URL) {
+  "use strict";
 
-  return function() {
-    var that = this;
+  app.factory("RoomService",
+    function(
+      $log, $firebaseAuth, $location, $rootScope, $localStorage,
+      FIREBASE_URL) {
 
-    var roomsRef = new Firebase(FIREBASE_URL + "/rooms");
-    var profile = JSON.parse(localStorage.getItem('currentUser'));
+      return function() {
+        var that = this;
+
+        var roomsRef = new Firebase(FIREBASE_URL + "/rooms");
+        var profile = JSON.parse(localStorage.getItem("currentUser"));
 
 
-    that.createRoom = function(room_name) {
-      var newRoom = roomsRef.push({
+        that.createRoom = function(roomName) {
+          var newRoom = roomsRef.push({
 
-        createdByName: profile.name,
-        createdByUid: profile.uid,
-        title: room_name,
-        timestamp: Date.now(),
-        members: [{
-          'uid': profile.uid
-        }]
+            createdByName: profile.name,
+            createdByUid: profile.uid,
+            title: roomName,
+            timestamp: Date.now(),
+            members: [{
+              "uid": profile.uid
+            }]
 
-      });
-      $log.debug("generated room " + newRoom.key());
-      return newRoom;
-    };
+          });
+          $log.debug("generated room " + newRoom.key());
+          return newRoom;
+        };
 
-    that.joinRoom = function(room_name) {
-      var room = roomsRef.child(room_name),
-        members = [];
-      room.child("members").on("child_added", function(snapshot) {
-        members[snapshot.key()] = snapshot.val();
-      });
-      for (var i = 0; i < members.length; i++) {
-        if (members[i].uid == profile.uid) break;
-      }
+        that.joinRoom = function(roomName) {
+          var room = roomsRef.child(roomName),
+            members = [];
+          room.child("members").on("child_added", function(snapshot) {
+            members[snapshot.key()] = snapshot.val();
+          });
+          for (var i = 0; i < members.length; i++) {
+            if (members[i].uid == profile.uid) {
+              return;
+            }
+          }
 
-      if (i == members.length) members.push({
-        "uid": profile.uid
-      }); //to ensure not inserted again
+          if (i == members.length) {
+            members.push({
+              "uid": profile.uid
+            }); //to ensure not inserted again
+          }
 
-      room.update({
-        members: members
-      });
-    };
+          room.update({
+            members: members
+          });
+        };
 
-    that.addMessage = function(room_name,user_name,msg) {
-      var room = roomsRef.child(room_name);
-      var newMsg = room.child("messages").push({
-        message : msg,
-        user : user_name,
-        timestamp : Date.now()
-      });
-      return newMsg;
-    }
+        that.addMessage = function(roomName, userName, msg) {
+          var room = roomsRef.child(roomName);
+          var newMsg = room.child("messages").push({
+            message: msg,
+            user: userName,
+            timestamp: Date.now()
+          });
+          return newMsg;
+        };
 
-    return that;
+        return that;
 
-  };
-});
+      };
+    });
+
+}());
